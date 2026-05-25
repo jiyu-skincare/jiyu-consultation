@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>肌·癒 皮膚管理面診</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,10 +59,13 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100vh;        /* fallback for older browsers */
+  height: 100dvh;       /* dynamic viewport — iOS Safari 不會被 toolbar 切到 */
   width: 100vw;
   background: var(--cream);
   position: relative;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .app::before {
@@ -4012,6 +4015,16 @@ body.browse-mode .gen-cat .course-grid {
   .step { padding: 28px 32px; }
   .header, .footer { padding: 16px 32px; }
   .step-title { font-size: 32px; }
+}
+
+/* iPad 橫向（短高度）特別處理 — welcome 太大會被切 */
+@media (max-height: 820px) and (orientation: landscape) {
+  .welcome { padding: 28px 60px 24px; }
+  .welcome-tag { margin-bottom: 14px; font-size: 12px; }
+  .welcome-mark { font-size: 56px; margin-bottom: 10px; }
+  .welcome-en { font-size: 18px; margin-bottom: 24px; }
+  .welcome-divider { margin: 0 auto 24px; }
+  .welcome-desc { font-size: 16px; }
 }
 
 /* ============================================

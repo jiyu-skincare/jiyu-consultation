@@ -4610,59 +4610,59 @@ body.browse-mode .gen-cat .course-grid {
   top: -9999px;
   left: -9999px;
   width: 1080px;
-  height: 1350px;
+  height: 1920px;
   z-index: -1;
   pointer-events: none;
 }
 .report-card {
   width: 1080px;
-  height: 1350px;
+  height: 1920px;
   background: var(--cream);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 80px 90px;
+  padding: 110px 120px;
   box-sizing: border-box;
   font-family: var(--sans);
 }
 /* 外框細線 */
 .report-card .frame {
   position: absolute;
-  top: 40px; left: 40px; right: 40px; bottom: 40px;
+  top: 56px; left: 56px; right: 56px; bottom: 56px;
   border: 1px solid rgba(107, 61, 46, 0.2);
   pointer-events: none;
 }
 /* 角落金線裝飾 */
 .report-card .corner {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   border-color: var(--accent);
   border-style: solid;
 }
-.report-card .corner-tl { top: 34px; left: 34px; border-width: 1.5px 0 0 1.5px; }
-.report-card .corner-tr { top: 34px; right: 34px; border-width: 1.5px 1.5px 0 0; }
-.report-card .corner-bl { bottom: 34px; left: 34px; border-width: 0 0 1.5px 1.5px; }
-.report-card .corner-br { bottom: 34px; right: 34px; border-width: 0 1.5px 1.5px 0; }
+.report-card .corner-tl { top: 48px; left: 48px; border-width: 1.5px 0 0 1.5px; }
+.report-card .corner-tr { top: 48px; right: 48px; border-width: 1.5px 1.5px 0 0; }
+.report-card .corner-bl { bottom: 48px; left: 48px; border-width: 0 0 1.5px 1.5px; }
+.report-card .corner-br { bottom: 48px; right: 48px; border-width: 0 1.5px 1.5px 0; }
 
 /* 底部品牌簽名（從頂部移下來） */
 .report-card .rc-brand-block {
-  margin-top: 22px;
+  margin-top: 32px;
   text-align: center;
 }
 .report-card .rc-brand {
   font-family: var(--display);
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 .report-card .rc-brand-zh {
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   color: var(--muted);
   letter-spacing: 0.25em;
@@ -4671,19 +4671,19 @@ body.browse-mode .gen-cat .course-grid {
 /* 客人姓名 + 日期 */
 .report-card .rc-customer {
   text-align: center;
-  margin-bottom: 26px;
+  margin-bottom: 38px;
 }
 .report-card .rc-customer-name {
   font-family: var(--serif);
-  font-size: 30px;
+  font-size: 48px;
   font-weight: 500;
   color: var(--ink);
   letter-spacing: 0.12em;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .report-card .rc-customer-date {
   font-family: var(--display);
-  font-size: 14px;
+  font-size: 22px;
   font-style: italic;
   color: var(--accent);
   letter-spacing: 0.25em;
@@ -4694,18 +4694,18 @@ body.browse-mode .gen-cat .course-grid {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-bottom: 30px;
+  gap: 18px;
+  margin-bottom: 42px;
 }
 .report-card .rc-divider .line {
-  width: 80px;
+  width: 120px;
   height: 1px;
   background: var(--accent);
   opacity: 0.5;
 }
 .report-card .rc-divider .diamond {
-  width: 6px;
-  height: 6px;
+  width: 9px;
+  height: 9px;
   background: var(--accent);
   transform: rotate(45deg);
   opacity: 0.7;
@@ -4715,9 +4715,9 @@ body.browse-mode .gen-cat .course-grid {
 .report-card .rc-top-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-bottom: 28px;
-  padding-bottom: 28px;
+  gap: 40px;
+  margin-bottom: 42px;
+  padding-bottom: 42px;
   border-bottom: 1px solid rgba(212, 199, 180, 0.6);
 }
 .report-card .rc-top-cell {
@@ -4726,44 +4726,44 @@ body.browse-mode .gen-cat .course-grid {
 }
 .report-card .rc-top-cell + .rc-top-cell {
   border-left: 1px solid rgba(212, 199, 180, 0.6);
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
 /* 膚況分析（雙欄左側） */
 .report-card .rc-diag-label {
   text-align: center;
   font-family: var(--display);
-  font-size: 11px;
+  font-size: 18px;
   font-style: italic;
   color: var(--accent);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 .report-card .rc-diag-name {
   text-align: center;
   font-family: var(--serif);
-  font-size: 28px;
+  font-size: 42px;
   font-weight: 600;
   color: var(--ink);
   letter-spacing: 0.04em;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   line-height: 1.3;
 }
 .report-card .rc-diag-sub {
   text-align: center;
   font-family: var(--display);
-  font-size: 15px;
+  font-size: 22px;
   font-style: italic;
   color: var(--accent);
   letter-spacing: 0.15em;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   font-weight: 500;
 }
 .report-card .rc-diag-desc {
   text-align: center;
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 300;
   color: var(--ink-soft);
   line-height: 1.75;
@@ -4776,19 +4776,19 @@ body.browse-mode .gen-cat .course-grid {
   width: 100%;
   height: 1px;
   background: rgba(212, 199, 180, 0.6);
-  margin-bottom: 28px;
+  margin-bottom: 42px;
 }
 
 /* 推薦課程（雙欄右側 + 全寬區塊共用） */
 .report-card .rc-block-label {
   text-align: left;
   font-family: var(--display);
-  font-size: 11px;
+  font-size: 18px;
   font-style: italic;
   color: var(--accent);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 .report-card .rc-block-label-center {
   text-align: center;
@@ -4797,27 +4797,27 @@ body.browse-mode .gen-cat .course-grid {
 .report-card .rc-course-name {
   text-align: center;
   font-family: var(--serif);
-  font-size: 26px;
+  font-size: 40px;
   font-weight: 600;
   color: var(--ink);
   letter-spacing: 0.06em;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   line-height: 1.3;
 }
 .report-card .rc-course-tag {
   text-align: center;
   font-family: var(--display);
-  font-size: 14px;
+  font-size: 22px;
   font-style: italic;
   color: var(--accent);
   letter-spacing: 0.15em;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   font-weight: 500;
 }
 .report-card .rc-course-desc {
   text-align: center;
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 300;
   color: var(--ink-soft);
   line-height: 1.75;
@@ -4828,24 +4828,24 @@ body.browse-mode .gen-cat .course-grid {
 /* 居家保養 */
 .report-card .rc-homecare-row {
   display: flex;
-  gap: 16px;
-  margin-bottom: 12px;
+  gap: 24px;
+  margin-bottom: 20px;
   align-items: flex-start;
 }
 .report-card .rc-homecare-time {
   font-family: var(--display);
-  font-size: 16px;
+  font-size: 26px;
   font-style: italic;
   color: var(--accent);
   font-weight: 500;
   letter-spacing: 0.15em;
-  min-width: 60px;
-  padding-top: 2px;
+  min-width: 100px;
+  padding-top: 4px;
 }
 .report-card .rc-homecare-flow {
   flex: 1;
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--ink-soft);
   line-height: 1.7;
@@ -4861,32 +4861,32 @@ body.browse-mode .gen-cat .course-grid {
 }
 .report-card .rc-habits-item {
   display: flex;
-  gap: 10px;
-  padding: 4px 0;
+  gap: 16px;
+  padding: 10px 0;
   align-items: flex-start;
 }
 .report-card .rc-habits-item::before {
   content: '·';
   color: var(--accent);
-  font-size: 14px;
+  font-size: 24px;
   line-height: 1.55;
   flex-shrink: 0;
   font-weight: 700;
 }
 .report-card .rc-habits-label {
   font-family: var(--serif);
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--ink);
   letter-spacing: 0.04em;
   flex-shrink: 0;
-  min-width: 100px;
+  min-width: 150px;
   line-height: 1.55;
 }
 .report-card .rc-habits-msg {
   flex: 1;
   font-family: var(--serif);
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 300;
   color: var(--ink-soft);
   line-height: 1.55;
@@ -4896,30 +4896,30 @@ body.browse-mode .gen-cat .course-grid {
 /* 底部品牌承諾 + 皮膚管理師 + handle */
 .report-card .rc-footer {
   margin-top: auto;
-  padding-top: 28px;
+  padding-top: 42px;
   border-top: 1px solid rgba(212, 199, 180, 0.6);
   text-align: center;
 }
 .report-card .rc-promise {
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.18em;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-style: italic;
 }
 .report-card .rc-staff {
   font-family: var(--serif);
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 300;
   color: var(--muted);
   letter-spacing: 0.12em;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .report-card .rc-handle {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.08em;
@@ -9986,16 +9986,16 @@ async function generateReportCard() {
 
   // 課程描述（取 desc，太長截斷）
   let courseDesc = (primary.desc || primary.fullDesc || '').trim();
-  if (courseDesc.length > 50) courseDesc = courseDesc.slice(0, 48) + '…';
+  if (courseDesc.length > 100) courseDesc = courseDesc.slice(0, 98) + '…';
 
   // 膚況描述（太長截斷）
   let diagDesc = (diagnosis.desc || '').trim();
-  if (diagDesc.length > 80) diagDesc = diagDesc.slice(0, 78) + '…';
+  if (diagDesc.length > 150) diagDesc = diagDesc.slice(0, 148) + '…';
 
   // 習慣建議：每條太長截斷（顯示全部，跟總結頁一致）
   const habitRisksTrimmed = habitRisks.map(r => {
     let msg = (r.msg || '').trim();
-    if (msg.length > 42) msg = msg.slice(0, 40) + '…';
+    if (msg.length > 80) msg = msg.slice(0, 78) + '…';
     return { label: r.label, msg };
   });
 
@@ -10085,7 +10085,7 @@ async function generateReportCard() {
   try {
     const canvas = await html2canvas(cardEl, {
       width: 1080,
-      height: 1350,
+      height: 1920,
       scale: 2,
       backgroundColor: '#F7F2EA',
       useCORS: true,

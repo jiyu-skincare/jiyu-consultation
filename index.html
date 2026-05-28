@@ -6078,9 +6078,9 @@ const CONFIG = {
       series: 'medical',
       brand: null,
       unitPrice: 1880,
-      desc: '雷射、微針、果酸後專屬',
+      desc: '雷射、微創、果酸後專屬',
       fullDesc: '針對醫美處置後的修復期肌膚，全程以屏障保護為核心，不進行去角質與清粉刺，加速癒合、鎮靜泛紅、穩定屏障。贈術後專屬修護禮。',
-      suitable: ['雷射、皮秒術後', '微針、水光針術後', '果酸換膚術後', '任何醫美後 15 天內'],
+      suitable: ['雷射、皮秒術後', '微創、水光療程術後', '果酸換膚術後', '任何醫美後 15 天內'],
       includes: ['極溫和卸妝', '屏障保護配方', '修護敷面', '紅光加速癒合', '贈術後修護禮'],
       time: '60 分鐘',
       bonus: '贈 術後專屬修護禮'
@@ -6392,11 +6392,22 @@ const CONFIG = {
     hydra_microaqua: {
       concern: 'special', level: 'special',
       name: '超清秀＋韓國水光', tag: 'Combo · Korean Aqua',
-      unitPrice: 4980,
-      desc: '優惠價 $4,980（原價 $7,500）· 贈手清粉刺＋保濕導入',
-      fullDesc: '超清秀水飛梭結合韓國水光，最完整的清潔＋深層導入組合。組合優惠價 $4,980（原價 $7,500）— 最高 C/P 值。',
-      suitable: ['想一次到位的完整管理', '毛孔粗糙＋深層保養需求', '追求最高 C/P 值組合'],
-      includes: ['超清秀水飛梭', '韓國水光導入', '手清粉刺（贈）', '保濕導入（贈）'],
+      unitPrice: 6080,
+      desc: '清潔＋深層導入完整組合 · 贈手清粉刺＋保濕導入',
+      fullDesc: '超清秀水飛梭結合韓國水光，最完整的清潔＋深層導入組合。可依膚況選擇 OCTA / MELA / CICA / V-fit 四種專屬配方。',
+      suitable: ['想一次到位的完整管理', '毛孔粗糙＋深層保養需求', '想嘗試韓國水光的清潔升級組合'],
+      includes: ['超清秀水飛梭', '無創水光導入', '手清粉刺（贈）', '保濕導入（贈）'],
+      time: '90 分鐘',
+      bonus: '贈 手清粉刺＋保濕導入'
+    },
+    hydra_exosome: {
+      concern: 'special', level: 'special',
+      name: '超清秀＋無創水光', tag: 'Combo · Exosome Aqua',
+      unitPrice: 6080,
+      desc: '清潔＋外泌體修護組合 · 贈手清粉刺＋保濕導入',
+      fullDesc: '超清秀水飛梭結合外泌體無創水光，最深層的清潔＋細胞活化修護組合。適合追求最新生物科技保養同時想兼顧清潔的客人。',
+      suitable: ['想嘗試最新外泌體技術', '深層清潔＋深層修護一次完成', '老化、敏感、想無創的客人'],
+      includes: ['超清秀水飛梭', '外泌體無創導入', '手清粉刺（贈）', '保濕導入（贈）'],
       time: '90 分鐘',
       bonus: '贈 手清粉刺＋保濕導入'
     },
@@ -6404,10 +6415,10 @@ const CONFIG = {
       concern: 'special', level: 'special',
       name: '韓國水光 · 單次', tag: 'Korean Aqua',
       unitPrice: 5080,
-      desc: '專業微針水光導入 · 4 種專屬配方',
-      fullDesc: '單次韓國水光療程。透過微針技術深層導入高活性配方，可依膚況需求選擇 OCTA（修護）/ MELA（亮白）/ CICA（鎮靜）/ V-fit（緊緻）四種專屬配方。',
-      suitable: ['追求一次到位的高效保養', '想嘗試微針水光技術', '已穩定無發炎期'],
-      includes: ['膚況分析', '微針水光導入', '配方選擇（OCTA / MELA / CICA / V-fit）', '深層修護面膜'],
+      desc: '專業無創導入技術 · 4 種專屬配方',
+      fullDesc: '單次韓國水光療程。透過無創導入技術深層送入高活性配方，可依膚況需求選擇 OCTA（修護）/ MELA（亮白）/ CICA（鎮靜）/ V-fit（緊緻）四種專屬配方。',
+      suitable: ['追求一次到位的高效保養', '想嘗試無創導入技術', '已穩定無發炎期'],
+      includes: ['膚況分析', '無創水光導入', '配方選擇（OCTA / MELA / CICA / V-fit）', '深層修護面膜'],
       time: '60 分鐘',
       addonNote: '加購價（配合其他課程）：$3,000'
     },
@@ -8468,7 +8479,7 @@ function renderGeneralGrid(mode = 'browse') {
     html += renderCategory(
       '02 · 超清秀系列',
       '英國水飛梭 · 單次／四堂包堂、進階組合（贈手清粉刺＋保濕導入）',
-      ['hydrafacial_single', 'hydrafacial_pack', 'hydra_air', 'hydra_vlift', 'hydra_microaqua']
+      ['hydrafacial_single', 'hydrafacial_pack', 'hydra_air', 'hydra_vlift', 'hydra_microaqua', 'hydra_exosome']
     );
 
     // ===== 03 韓國皮膚管理（5 大膚況 concern picker） =====

@@ -6411,6 +6411,16 @@ const CONFIG = {
       time: '60 分鐘',
       addonNote: '加購價（配合其他課程）：$3,000'
     },
+    exosome_aqua: {
+      concern: 'special', level: 'special',
+      name: '外泌體無創水光 · 單次', tag: 'Exosome Aqua',
+      unitPrice: 5080,
+      desc: '外泌體深層修護 · 無創技術導入',
+      fullDesc: '單次外泌體無創水光療程。採用無創導入技術，將高活性外泌體（細胞外囊泡）送入肌膚深層，促進細胞再生與修護。適合追求最新生物科技保養、深層修護或老化肌膚。',
+      suitable: ['追求最新生物科技保養', '深層修護需求', '老化、敏感、想無創的客人'],
+      includes: ['膚況分析', '外泌體無創導入', '深層修護面膜'],
+      time: '60 分鐘'
+    },
     waterlight_4: {
       concern: 'special', level: 'special',
       name: '極致水光澎潤課程', tag: 'Water Light · 4',
@@ -8485,11 +8495,11 @@ function renderGeneralGrid(mode = 'browse') {
     });
     html += `</div>`;
 
-    // ===== 04 韓國水光療程 =====
+    // ===== 04 頂級水光療程 =====
     html += renderCategory(
-      '04 · 韓國水光療程',
-      '單次體驗到完整療程 · OCTA / MELA / CICA / V-fit 四種專屬配方',
-      ['microaqua_single', 'waterlight_4', 'waterlight_8']
+      '04 · 頂級水光療程',
+      '韓國水光（OCTA / MELA / CICA / V-fit）· 外泌體無創水光 · 完整療程方案',
+      ['microaqua_single', 'exosome_aqua', 'waterlight_4', 'waterlight_8']
     );
   }
 

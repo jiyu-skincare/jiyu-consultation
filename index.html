@@ -2837,6 +2837,20 @@ body.browse-mode .course-grid {
   background: var(--accent);
 }
 
+/* Wizard 模式下的 tab 切換提示 — 告訴客人可以切到另一個分類 */
+.wizard-tab-hint {
+  max-width: 1100px;
+  margin: 12px auto 24px;
+  padding: 0 40px;
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--accent);
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-align: center;
+  opacity: 0.85;
+}
+
 /* General skin category sections */
 .gen-cat {
   max-width: 1100px;
@@ -8106,20 +8120,37 @@ function renderCourses() {
     neutralNotice.style.display = isNeutralGeneral ? 'block' : 'none';
   }
 
-  // In wizard mode: route by flow type
+  // In wizard mode: tab switcher (讓客人能切到另一個分類) + grid
   if (!isBrowse) {
-    if (state.flow === 'general') {
-      // 特例：一般肌諮詢中選了屏障敏感 → 顯示敏感肌專業修護系列
-      if (state.activeConcern === 'barrier') {
-        c.innerHTML = renderSensitiveGrid('select', { fromGeneralBarrier: true });
-      } else {
-        // General flow: show general courses directly (no tab)
-        c.innerHTML = renderGeneralGrid('select');
-      }
-    } else {
-      // Sensitive flow: show sensitive courses
-      c.innerHTML = renderSensitiveGrid('select');
+    // 預設依 flow 設定 browseTab（第一次進入用）
+    if (!state.browseTab) {
+      state.browseTab = state.flow === 'sensitive' ? 'sensitive' : 'general';
     }
+
+    const tab = state.browseTab;
+    const tabsHtml = `
+      <div class="browse-tabs">
+        <button class="browse-tab ${tab === 'sensitive' ? 'active' : ''}"
+          onclick="switchBrowseTab('sensitive')">敏感肌修護</button>
+        <button class="browse-tab ${tab === 'general' ? 'active' : ''}"
+          onclick="switchBrowseTab('general')">韓國皮膚管理</button>
+      </div>
+      <div class="wizard-tab-hint">不是這個方向？點上面切換到別的分類，原本選的不會消失</div>
+    `;
+
+    let gridHtml = '';
+    if (tab === 'sensitive') {
+      gridHtml = renderSensitiveGrid('select');
+    } else {
+      // 一般肌諮詢選了屏障敏感的特例
+      if (state.activeConcern === 'barrier') {
+        gridHtml = renderSensitiveGrid('select', { fromGeneralBarrier: true });
+      } else {
+        gridHtml = renderGeneralGrid('select');
+      }
+    }
+
+    c.innerHTML = `<div class="browse-wrap">${tabsHtml}${gridHtml}</div>`;
     return;
   }
 

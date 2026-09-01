@@ -7005,7 +7005,7 @@ const CONFIG = {
     { id: 'addon_lymph', name: '韓式淋巴按摩', price: 800, icon: '🤲',
       desc: '15 分鐘 · 肩頸、臉、頭',
       suitable: ['臉部水腫、輪廓模糊', '肩頸緊繃', '想放鬆兼緊緻'],
-      effect: '疏通淋巴循環、代謝多餘水分，做完立即感覺輪廓緊緻、肩頸放鬆。單堂價 $4,000 以上課程已含此項。' },
+      effect: '疏通淋巴循環、代謝多餘水分，做完立即感覺輪廓緊緻、肩頸放鬆。單堂價 $4,280 以上課程已含此項。' },
     { id: 'addon_head', name: '頭療', price: 400, icon: '🧖',
       desc: '10 分鐘 · 頭部穴位放鬆',
       suitable: ['壓力大、睡不好', '頭皮緊繃', '想加強放鬆感'],
@@ -7268,14 +7268,14 @@ const CONFIG = {
 };
 
 /* ============================================================
-   單堂價 $4,000 以上課程 · 含韓式淋巴按摩 15 分鐘
+   單堂價 $4,280 以上課程 · 含韓式淋巴按摩 15 分鐘
    （包堂課程用「單堂均價」判斷；輪廓管理基礎本身已含全套手技，價格未達門檻自動排除）
    ============================================================ */
-const LYMPH_THRESHOLD = 4000;
+const LYMPH_THRESHOLD = 4280;
 const LYMPH_ITEM = '韓式淋巴按摩 15 分鐘（肩頸・臉・頭）';
-// ⚠️ 全面開放的開關：員工手技練熟後改成 true（預計 9/1），所有單堂 $4,000 以上課程就會顯示「已含」
-const LYMPH_ALL_ENABLED = false;
-// 八月活動限定加贈（活動四堂課）
+// 2026-09-01 起全面開放：所有單堂 $4,280 以上課程顯示「已含」
+const LYMPH_ALL_ENABLED = true;
+// 當月活動四堂課（未達門檻者於活動期間亦含，例：3D 立體煥膚 $4,080）
 const LYMPH_PROMO_COURSES = ['kr_premium_pigment_6hr', 'peeling_3d', 'exob', 'exosome_aqua'];
 const LYMPH_PROMO_ITEM = '輪廓淋巴按摩 15 分鐘（肩頸・臉部・頭療）';
 (function attachLymphMassage() {
@@ -7289,9 +7289,11 @@ const LYMPH_PROMO_ITEM = '輪廓淋巴按摩 15 分鐘（肩頸・臉部・頭�
       if (!s || !Array.isArray(s.includes)) return;
       if (LYMPH_ALL_ENABLED && perSession(s) >= LYMPH_THRESHOLD && s.includes.indexOf(LYMPH_ITEM) === -1) {
         s.includes.push(LYMPH_ITEM);
-      } else if (!LYMPH_ALL_ENABLED && LYMPH_PROMO_COURSES.indexOf(key) !== -1
-                 && typeof isMonthlyPromoActive === 'function' && isMonthlyPromoActive()
-                 && s.includes.indexOf(LYMPH_PROMO_ITEM) === -1) {
+      }
+      if (LYMPH_PROMO_COURSES.indexOf(key) !== -1
+          && typeof isMonthlyPromoActive === 'function' && isMonthlyPromoActive()
+          && s.includes.indexOf(LYMPH_ITEM) === -1
+          && s.includes.indexOf(LYMPH_PROMO_ITEM) === -1) {
         s.includes.push(LYMPH_PROMO_ITEM);
       }
     });
@@ -10115,7 +10117,7 @@ function renderAddonRecommendStep() {
     || !!(state.screening && state.screening.moderate &&
          (state.screening.moderate.has('post_medical') || state.screening.moderate.has('active_allergy')));
 
-  // 課程已含韓式淋巴 → 不再列為加購（全面開放時看單堂價；目前僅活動四堂課加贈）
+  // 課程已含韓式淋巴 → 不再列為加購（單堂 $4,280 以上；活動四堂課於活動期間亦含）
   const lymphIncluded = (() => {
     const s = (CONFIG.generalServices && CONFIG.generalServices[effectiveService])
            || (CONFIG.services && CONFIG.services[effectiveService]);
@@ -10123,7 +10125,7 @@ function renderAddonRecommendStep() {
     if (LYMPH_ALL_ENABLED) {
       const m = String(s.time || '').match(/×\s*(\d+)/);
       const n = m ? parseInt(m[1], 10) : 1;
-      return (s.unitPrice || 0) / (n || 1) >= LYMPH_THRESHOLD;
+      if ((s.unitPrice || 0) / (n || 1) >= LYMPH_THRESHOLD) return true;
     }
     return LYMPH_PROMO_COURSES.indexOf(effectiveService) !== -1
         && typeof isMonthlyPromoActive === 'function' && isMonthlyPromoActive();
